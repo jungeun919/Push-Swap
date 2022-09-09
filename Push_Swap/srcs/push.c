@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:46:45 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/08 16:22:51 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/09 13:29:36 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ void	push(t_list *list, t_node *node)
 {
 	if (list->size == 0)
 	{
-		node->prev = NULL;
-		node->next = NULL;
+		node->prev = node;
+		node->next = node;
 		list->top = node;
 		list->bottom = node;
 	}
 	else
 	{
 		node->next = list->top;
-		node->prev = NULL;
+		node->prev = list->bottom;
 		list->top = node;
 	}
 	list->size += 1;
@@ -45,6 +45,8 @@ t_node	*pop(t_list *list)
 	}
 	else
 		list->top = list->top->next;
+		list->top->prev = list->bottom;
+		list->bottom->next = list->top;
 	return (temp);
 }
 

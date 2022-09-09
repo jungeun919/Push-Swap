@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 14:37:35 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/09 17:02:18 by jungchoi         ###   ########.fr       */
+/*   Created: 2022/09/09 13:07:46 by jungchoi          #+#    #+#             */
+/*   Updated: 2022/09/09 13:07:48 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	swap(t_list *list)
+void	rotate(t_list *list)
 {
-	t_node	*temp;
-
 	if (list->size < 2)
 		return ;
-	temp = list->top->next;
-	list->top->next = temp->next;
-	list->top->prev = temp;
-	temp->prev = list->bottom;
-	temp->next = list->top;
+	list->top = list->top->next;
+	list->bottom = list->bottom->next;
 }
 
-void	sa(t_lists *lists)
+void	ra(t_lists *lists)
 {
-	swap(lists->a);
+	rotate(lists->a);
 }
 
-void	sb(t_lists *lists)
+void	rb(t_lists *lists)
 {
-	swap(lists->b);
+	rotate(lists->b);
 }
 
-void	ss(t_lists *lists)
+void	rr(t_lists *lists)
 {
-	swap(lists->a);
-	swap(lists->b);
+	rotate(lists->a);
+	rotate(lists->b);
 }
