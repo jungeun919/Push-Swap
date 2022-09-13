@@ -23,11 +23,13 @@ void	reverse_rotate(t_list *list)
 void	rra(t_lists *lists)
 {
 	reverse_rotate(lists->a);
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_lists *lists)
 {
 	reverse_rotate(lists->b);
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_lists *lists)

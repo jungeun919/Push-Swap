@@ -58,6 +58,7 @@ void	pa(t_lists *lists)
 	if (!node)
 		return ;
 	push(lists->a, node);
+	write(1, "pa\n", 3);
 }
 
 void	pb(t_lists *lists)
@@ -68,4 +69,5 @@ void	pb(t_lists *lists)
 	if (!node)
 		return ;
 	push(lists->b, node);
+	write(1, "pb\n", 3);
 }
