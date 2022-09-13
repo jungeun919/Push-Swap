@@ -23,11 +23,13 @@ void	rotate(t_list *list)
 void	ra(t_lists *lists)
 {
 	rotate(lists->a);
+	write(1, "ra\n", 3);
 }
 
 void	rb(t_lists *lists)
 {
 	rotate(lists->b);
+	write(1, "rb\n", 3);
 }
 
 void	rr(t_lists *lists)

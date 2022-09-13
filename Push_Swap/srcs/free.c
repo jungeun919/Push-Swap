@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse_rotate.c                                   :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/09 13:13:29 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/09 13:13:31 by jungchoi         ###   ########.fr       */
+/*   Created: 2022/09/14 07:54:12 by jungchoi          #+#    #+#             */
+/*   Updated: 2022/09/14 07:56:26 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	reverse_rotate(t_list *list)
+void	free_list(t_list *list)
 {
-	if (list->size < 2)
-		return ;
-	list->top = list->top->prev;
-	list->bottom = list->bottom->prev;
+	t_node	*temp;
+
+	while (list->top)
+	{
+		temp = list->top->next;
+		free(list->top);
+		list->top = NULL;
+		list->top = temp;
+	}
+	free(list);
+	list = NULL;
 }
 
-void	rra(t_lists *lists)
+void	free_lists(t_lists *lists)
 {
-	reverse_rotate(lists->a);
-	write(1, "rra\n", 4);
-}
-
-void	rrb(t_lists *lists)
-{
-	reverse_rotate(lists->b);
-	write(1, "rrb\n", 4);
-}
-
-void	rrr(t_lists *lists)
-{
-	reverse_rotate(lists->a);
-	reverse_rotate(lists->b);
+	free_list(lists->a);
+	free_list(lists->b);
 }

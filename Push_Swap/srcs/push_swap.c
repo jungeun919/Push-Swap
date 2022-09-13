@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/09 16:32:10 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/14 07:54:18 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ int	main(int argc, char *argv[])
 		return (0);
 	init_list();
 	//input format 확인
-	check_input(argc, argv);
+	check_input(argv, lists);
 	//sorted 되었는지 확인
 	if (check_sorted(lists->a))
 		//정렬 x 일 경우 -> sort list
 		sort_list(lists);
 	else
 		return ;
+	free_lists(lists);
+	return (0);
 }
 
 void	init_list(void)
@@ -66,4 +68,10 @@ int	check_sorted(t_list *list)
 		list->top = list->top->next;
 	}
 	return (1);
+}
+
+void	print_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }
