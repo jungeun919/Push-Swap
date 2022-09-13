@@ -1,15 +1,3 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/09/14 07:14:03 by jungchoi          #+#    #+#              #
-#    Updated: 2022/09/14 07:26:28 by jungchoi         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME = push_swap
 
 CC = cc
@@ -20,7 +8,8 @@ LIBS_DIR = ./libs/
 SRCS_DIR = ./srcs/
 OBJS_DIR = ./objs/
 
-SRCS = $(addprefix $(SRCS_DIR)/, \push_swap.c \
+SRCS = $(addprefix $(SRCS_DIR)/, \
+	push_swap.c \
 	swap.c \
 	push.c \
 	rotate.c \
@@ -55,4 +44,8 @@ fclean : clean
 
 re : fclean all
 
+<<<<<<< HEAD
 .PHONY = all clean fclean re
+=======
+.PHONY = all clean fclean re
+>>>>>>> 9e999714309b5fa80ea78db6215db6647dbbf13e
