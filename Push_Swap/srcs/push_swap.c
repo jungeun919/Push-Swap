@@ -54,6 +54,7 @@ t_node	*init_node(int num)
 	if (!node)
 		return (NULL);
 	node->num = num;
+	node->index = 0;
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);

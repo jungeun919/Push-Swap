@@ -8,6 +8,12 @@ LIBS_DIR = ./libs/
 SRCS_DIR = ./srcs/
 OBJS_DIR = ./objs/
 
+LIBFT_DIR = ./libs/libft
+LIBFT = libft.a
+
+$(LIBFT) :
+	make -C $(LIBFT_DIR) all
+	
 SRCS = $(addprefix $(SRCS_DIR)/, \
 	push_swap.c \
 	swap.c \
@@ -18,34 +24,25 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	sort.c)
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
-LIBFT_NAME = libft
-LIBFT_DIR = $(LIBS_DIR)$(LIBFT_NAME)
-LIBFT = $(LIBFT_DIR)$(LIBFT_NAME).a
-
-$(LIBFT) :
-	make -C $(LIBS_DIR) $(LIBFT_DIR) all
-
 all : $(NAME)
 
 $(NAME) : $(LIBFT) $(OBJS) $(INCS)
-	$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -l $(LIBFT_NAME) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -o $@
 
 $(OBJS_DIR)%.o : %.c
 	mkdir $(OBJS_DIR)
 	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -I $(LIBFT_DIR) -c $< -o $@
 
 clean :
-	rm -rf $(OBJS)
-	make -C $(LIBS_DIR)$(LIBFT_DIR) clean
+	rm -rf $(OBJS_DIR)
+	make -C $(LIBFT_DIR) clean
 
 fclean : clean
 	rm -rf $(NAME)
-	make -C $(LIBS_DIR)$(LIBFT_DIR) fclean
+	make -C $(LIBFT_DIR) fclean
 
-re : fclean all
+re :
+	make fclean
+	make all
 
-<<<<<<< HEAD
 .PHONY = all clean fclean re
-=======
-.PHONY = all clean fclean re
->>>>>>> 9e999714309b5fa80ea78db6215db6647dbbf13e

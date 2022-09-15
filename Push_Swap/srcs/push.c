@@ -25,6 +25,8 @@ void	push(t_list *list, t_node *node)
 	{
 		node->next = list->top;
 		node->prev = list->bottom;
+		list->top->prev = node;
+		list->bottom->next = node;
 		list->top = node;
 	}
 	list->size += 1;
@@ -44,9 +46,12 @@ t_node	*pop(t_list *list)
 		list->bottom = NULL;
 	}
 	else
+	{
 		list->top = list->top->next;
 		list->top->prev = list->bottom;
 		list->bottom->next = list->top;
+	}
+	list->size -= 1;
 	return (temp);
 }
 

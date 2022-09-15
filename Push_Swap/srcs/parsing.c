@@ -46,7 +46,7 @@ void	split_input(char *str, t_lists *lists)
 	free(split);
 }
 
-long long	atoll(const char *str)
+long long	ft_atoll(const char *str)
 {
 	int			i;
 	int			sign;
@@ -70,7 +70,7 @@ long long	atoll(const char *str)
 	return (sign * num);
 }
 
-void	check_valid_input(char *str, t_lists *lists)
+void	check_valid_input_and_push(char *str, t_lists *lists)
 {
 	long long	num;
 	t_node		*node;
@@ -79,6 +79,26 @@ void	check_valid_input(char *str, t_lists *lists)
 	if (num < -2147483648 || num > 2147483647)
 		print_error();
 	node = init_node((int)num);
+	if (!(check_duplicate_and_indexing(lists->a, node)))
+		print_error();
 	push(lists->a, node);
 	rotate(lists->a);
+}
+
+int	check_duplicate_and_indexing(t_list *list, t_node *node)
+{
+	t_node	*temp;
+
+	temp = list->top;
+	while (list->size)
+	{
+		if (temp->num == node->num)
+			return (0);
+		if (temp->num < node->num)
+			node->index++;
+		else if (temp->num > node->num)
+			temp->index++;
+		temp = temp->next;
+	}
+	return (1);
 }

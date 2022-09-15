@@ -31,4 +31,6 @@ void	free_lists(t_lists *lists)
 {
 	free_list(lists->a);
 	free_list(lists->b);
+	free(lists);
+	lists = NULL;
 }

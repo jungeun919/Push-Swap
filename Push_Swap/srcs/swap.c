@@ -14,18 +14,22 @@
 
 void	swap(t_list *list)
 {
-	t_node	*temp;
+	t_node	*temp1;
+	t_node	*temp2;
 
 	if (list->size < 2)
 		return ;
-	temp = list->top->num;
-	list->top->num = list->top->next->num;
-	list->top->next->num = temp;
-
-	// list->top->next = temp->next;
-	// list->top->prev = temp;
-	// temp->prev = list->bottom;
-	// temp->next = list->top;
+	temp1 = list->top;
+	temp2 = list->top->next;
+	temp1->next = temp2->next;
+	temp1->prev = temp2;
+	if (temp1->next)
+		temp1->next->prev = temp1;
+	else
+		list->bottom = temp2;
+	temp2->prev = list->bottom;
+	temp2->next = temp1;
+	list->top = temp2;
 }
 
 void	sa(t_lists *lists)
