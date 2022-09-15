@@ -22,17 +22,20 @@ void	sort_list(t_lists *lists)
 
 void	sort_under_five(t_lists *lists)
 {
-	if (lists->a->size == 2)
+	if (lists->a->size < 2)
+		return ;
+	else if (lists->a->size == 2)
 		sort_two_node(lists);
 	else if (lists->a->size == 3)
 		sort_three_node(lists);
-	else if (lists->a->size == 4)
-		sort_four_node(lists);
+	else
+		sort_four_or_five_node(lists);
 }
 
 void	sort_two_node(t_lists *lists)
 {
-	sa(lists);
+	if (lists->a->top->index > lists->a->top->next->index)
+		sa(lists);
 }
 
 void	sort_three_node(t_lists *lists)
@@ -41,9 +44,9 @@ void	sort_three_node(t_lists *lists)
 	int	second;
 	int	third;
 
-	first = lists->a->top->num;
-	second = lists->a->top->next->num;
-	third = lists->a->top->next->next->num;
+	first = lists->a->top->index;
+	second = lists->a->top->next->index;
+	third = lists->a->top->next->next->index;
 
 	if (first < second)
 	{
@@ -69,7 +72,18 @@ void	sort_three_node(t_lists *lists)
 	}
 }
 
-void	sort_four_node(t_lists *lists)
+void	sort_four_or_five_node(t_lists *lists)
 {
-	
+	while (lists->a->size > 3)
+	{
+		if (lists->a->top->index < 2)
+			pb(lists);
+		else
+			ra(lists);
+	}
+	sort_three_node(lists);
+	while (lists->b->size)
+		pa(lists);
+	if (lists->a->top->index != 0)
+		sa(lists);
 }
