@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   sort_over_five.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/14 07:54:12 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/16 16:17:31 by jungchoi         ###   ########.fr       */
+/*   Created: 2022/09/16 13:38:33 by jungchoi          #+#    #+#             */
+/*   Updated: 2022/09/16 14:56:25 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	free_list(t_list *list)
+void	a_to_b(t_lists *lists)
 {
-	t_node	*temp;
-
-	while (list->top)
-	{
-		temp = list->top->next;
-		free(list->top);
-		list->top = NULL;
-		list->top = temp;
-	}
-	free(list);
-	list = NULL;
-}
-
-void	free_lists(t_lists *lists)
-{
-	free_list(lists->a);
-	free_list(lists->b);
-	free(lists);
-	lists = NULL;
+	
 }

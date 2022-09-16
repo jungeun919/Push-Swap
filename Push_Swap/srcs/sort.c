@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:57:50 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/14 08:38:23 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:53:05 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,58 +32,19 @@ void	sort_under_five(t_lists *lists)
 		sort_four_or_five_node(lists);
 }
 
-void	sort_two_node(t_lists *lists)
+void	sort_over_five(t_lists *lists)
 {
-	if (lists->a->top->index > lists->a->top->next->index)
-		sa(lists);
+	a_to_b(lists);
+	b_to_a(lists);
 }
 
-void	sort_three_node(t_lists *lists)
+int	check_sorted(t_list *list)
 {
-	int	first;
-	int	second;
-	int	third;
-
-	first = lists->a->top->index;
-	second = lists->a->top->next->index;
-	third = lists->a->top->next->next->index;
-
-	if (first < second)
+	while (list->size)
 	{
-		if (second > third) //132
-		{
-			rra(lists);
-			sa(lists);
-		}
-		else //231
-			rra(lists);
+		if (list->top->index > list->top->next->index)
+			return (0);
+		list->top = list->top->next;
 	}
-	else
-	{
-		if (second < third && first < third) //213
-			sa(lists);
-		else if (second < third && first > third) //312
-			ra(lists);
-		else if (second > third) //321
-		{
-			ra(lists);
-			sa(lists);
-		}
-	}
-}
-
-void	sort_four_or_five_node(t_lists *lists)
-{
-	while (lists->a->size > 3)
-	{
-		if (lists->a->top->index < 2)
-			pb(lists);
-		else
-			ra(lists);
-	}
-	sort_three_node(lists);
-	while (lists->b->size)
-		pa(lists);
-	if (lists->a->top->index != 0)
-		sa(lists);
+	return (1);
 }

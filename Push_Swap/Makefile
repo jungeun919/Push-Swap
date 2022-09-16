@@ -3,12 +3,12 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-INCLUDES_DIR = ./includes/
-LIBS_DIR = ./libs/
-SRCS_DIR = ./srcs/
-OBJS_DIR = ./objs/
+INCLUDES_DIR = includes
+LIBS_DIR = libs
+SRCS_DIR = srcs
+OBJS_DIR = objs
 
-LIBFT_DIR = ./libs/libft
+LIBFT_DIR = libs/libft
 LIBFT = libft.a
 
 $(LIBFT) :
@@ -21,7 +21,9 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	rotate.c \
 	reverse_rotate.c \
 	parsing.c \
-	sort.c)
+	sort.c \
+	free.c)
+
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
 
 all : $(NAME)
@@ -29,7 +31,7 @@ all : $(NAME)
 $(NAME) : $(LIBFT) $(OBJS) $(INCS)
 	$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -o $@
 
-$(OBJS_DIR)%.o : %.c
+%.o : %.c
 	mkdir $(OBJS_DIR)
 	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -I $(LIBFT_DIR) -c $< -o $@
 

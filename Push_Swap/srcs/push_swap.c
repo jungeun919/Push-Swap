@@ -6,12 +6,13 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/14 07:54:18 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/16 17:17:31 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
+/*
 int	main(int argc, char *argv[])
 {
 	t_lists	*lists;
@@ -33,6 +34,7 @@ int	main(int argc, char *argv[])
 	free_lists(lists);
 	return (0);
 }
+*/
 
 void	init_list(void)
 {
@@ -58,17 +60,6 @@ t_node	*init_node(int num)
 	node->prev = NULL;
 	node->next = NULL;
 	return (node);
-}
-
-int	check_sorted(t_list *list)
-{
-	while (list->top)
-	{
-		if (list->top->num >= list->top->next->num)
-			return (0);
-		list->top = list->top->next;
-	}
-	return (1);
 }
 
 void	print_error(void)

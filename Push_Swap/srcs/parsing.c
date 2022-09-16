@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:07:26 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/14 08:32:42 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/16 16:52:03 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	split_input(char *str, t_lists *lists)
 	free(split);
 }
 
-long long	ft_atoll(const char *str)
+long long	atoll(const char *str)
 {
 	int			i;
 	int			sign;
@@ -65,6 +65,8 @@ long long	ft_atoll(const char *str)
 	while (ft_isdigit(str[i]))
 	{
 		num = num * 10 + str[i] - '0';
+		if (sign * num < -2147483648 || sign * num > 2147483647)
+			print_error();
 		i++;
 	}
 	return (sign * num);
@@ -75,9 +77,7 @@ void	check_valid_input_and_push(char *str, t_lists *lists)
 	long long	num;
 	t_node		*node;
 	
-	num = ft_atoll(str);
-	if (num < -2147483648 || num > 2147483647)
-		print_error();
+	num = atoll(str);
 	node = init_node((int)num);
 	if (!(check_duplicate_and_indexing(lists->a, node)))
 		print_error();
