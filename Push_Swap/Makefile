@@ -11,9 +11,6 @@ OBJS_DIR = objs
 LIBFT_DIR = libs/libft
 LIBFT = libft.a
 
-$(LIBFT) :
-	make -C $(LIBFT_DIR) all
-	
 SRCS = $(addprefix $(SRCS_DIR)/, \
 	push_swap.c \
 	swap.c \
@@ -22,17 +19,26 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	reverse_rotate.c \
 	parsing.c \
 	sort.c \
+	sort_under_five.c \
+	sort_over_five.c \
 	free.c)
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.c=.o))
+# OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
+OBJS = $(notdir $(SRCS:.c=.o))
 
 all : $(NAME)
 
-$(NAME) : $(LIBFT) $(OBJS) $(INCS)
-	$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -o $@
+$(NAME) : $(LIBFT) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -I $(INCLUDES_DIR) -L $(LIBFT_DIR) -lft -o $@
 
-%.o : %.c
-	mkdir $(OBJS_DIR)
+
+$(LIBFT) :
+	make -C $(LIBFT_DIR) all
+	
+%.o : $(SRCS_DIR)/%.c
+	# @mkdir $(OBJS_DIR) 2> /dev/null || true
+	# $(CC) $(CFLAGS) -c $^ -o $@ -I $(INCLUDES_DIR)
+	# mkdir $(OBJS_DIR)
 	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -I $(LIBFT_DIR) -c $< -o $@
 
 clean :

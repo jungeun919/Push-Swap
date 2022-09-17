@@ -25,18 +25,26 @@ int	main(void)
 	lists->b->bottom = NULL;
 
 	node1 = init_node(2);
+	node1->index = 1;
 	node2 = init_node(4);
+	node2->index = 3;
 	node3 = init_node(1);
+	node3->index = 0;
 	node4 = init_node(3);
+	node4->index = 2;
 
-	push(lists->a, node1);
-	rotate(lists->a);
-	push(lists->a, node2);
-	rotate(lists->a);
-	push(lists->a, node3);
-	rotate(lists->a);
-	push(lists->a, node4);
-	rotate(lists->a);
+	push(lists->b, node1);
+	rotate(lists->b);
+	push(lists->b, node2);
+	rotate(lists->b);
+	push(lists->b, node3);
+	rotate(lists->b);
+	push(lists->b, node4);
+	rotate(lists->b);
+
+	print_node(lists->b);
+
+	b_to_a(lists);
 
 	print_node(lists->a);
 

@@ -6,13 +6,14 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:01:19 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/16 16:55:56 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/17 17:25:51 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "../libs/libft/libft.h"
 # include <stdlib.h> //exit, malloc, free
 # include <unistd.h> //read, close
 
@@ -88,5 +89,9 @@ void	sort_two_node(t_lists *lists);
 void	sort_three_node(t_lists *lists);
 void	sort_three_node_index(t_lists *lists, int first, int second, int third);
 void	sort_four_or_five_node(t_lists *lists);
+
+//sort_over_five.c
+void	a_to_b(t_lists *lists);
+void	b_to_a(t_lists *lists);
 
 #endif
