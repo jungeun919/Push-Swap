@@ -25,17 +25,17 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-typedef struct s_list
+typedef struct s_dllist
 {
 	int				size;
 	struct s_node	*top;
 	struct s_node	*bottom;
-}	t_list;
+}	t_dllist;
 
 typedef struct s_lists
 {
-	struct s_list	*a;
-	struct s_list	*b;
+	struct s_dllist	*a;
+	struct s_dllist	*b;
 }	t_lists;
 
 //push_swap.c
@@ -44,31 +44,31 @@ t_node	*init_node(int num);
 void	print_error(void);
 
 //swap.c
-void	swap(t_list *list);
+void	swap(t_dllist *list);
 void	sa(t_lists *lists);
 void	sb(t_lists *lists);
 void	ss(t_lists *lists);
 
 //push.c
-void	push(t_list *list, t_node *node);
-t_node	*pop(t_list *list);
+void	push(t_dllist *list, t_node *node);
+t_node	*pop(t_dllist *list);
 void	pa(t_lists *lists);
 void	pb(t_lists *lists);
 
 //rotate.c
-void	rotate(t_list *list);
+void	rotate(t_dllist *list);
 void	ra(t_lists *lists);
 void	rb(t_lists *lists);
 void	rr(t_lists *lists);
 
 //reverse_rotate.c
-void	reverse_rotate(t_list *list);
+void	reverse_rotate(t_dllist *list);
 void	rra(t_lists *lists);
 void	rrb(t_lists *lists);
 void	rrr(t_lists *lists);
 
 //free.c
-void	free_list(t_list *list);
+void	free_list(t_dllist *list);
 void	free_lists(t_lists *lists);
 
 //parsing.c
@@ -76,13 +76,13 @@ int		check_input(char **argv, t_lists *lists);
 void	split_input(char *str, t_lists *lists);
 long long	atoll(const char *str);
 void	check_valid_input_and_push(char *str, t_lists *lists);
-int		check_duplicate_and_indexing(t_list *list, t_node *node);
+int		check_duplicate_and_indexing(t_dllist *list, t_node *node);
 
 //sort.c
 void	sort_list(t_lists *lists);
 void	sort_under_five(t_lists *lists);
 void	sort_over_five(t_lists *lists);
-int		check_sorted(t_list *list);
+int		check_sorted(t_dllist *list);
 
 //sort_under_five.c
 void	sort_two_node(t_lists *lists);

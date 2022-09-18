@@ -15,28 +15,34 @@
 void	a_to_b(t_lists *lists)
 {
 	int	i;
+	int	size;
 	int	chunk;
 
 	i = 0;
 	chunk = 5;
-	if (lists->a->top->index <= i)
+	size = lists->a->size;
+	while (size)
 	{
-		pb(lists);
-		i++;
-	}
-	else if (lists->a->top->index > i && lists->a->top->index <= i + chunk)
-	{
-		pb(lists);
-		rb(lists);
-		i++;
-	}
-	else
-	{
-		if (i < lists->a->size / 2)
-			rra(lists);
+		if (lists->a->top->index <= i)
+		{
+			pb(lists);
+			i++;
+		}
+		else if (lists->a->top->index > i && lists->a->top->index <= i + chunk)
+		{
+			pb(lists);
+			rb(lists);
+			i++;
+		}
 		else
-			ra(lists);
-		i++;
+		{
+			if (i < lists->a->size / 2)
+				rra(lists);
+			else
+				ra(lists);
+			i++;
+		}
+		size--;
 	}
 }
 

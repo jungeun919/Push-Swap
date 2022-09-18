@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	push(t_list *list, t_node *node)
+void	push(t_dllist *list, t_node *node)
 {
 	if (list->size == 0)
 	{
@@ -32,7 +32,7 @@ void	push(t_list *list, t_node *node)
 	list->size += 1;
 }
 
-t_node	*pop(t_list *list)
+t_node	*pop(t_dllist *list)
 {
 	t_node	*temp;
 

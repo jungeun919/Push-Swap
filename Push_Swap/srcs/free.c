@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	free_list(t_list *list)
+void	free_list(t_dllist *list)
 {
 	t_node	*temp;
 

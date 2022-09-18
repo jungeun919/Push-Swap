@@ -38,9 +38,9 @@ int	main(int argc, char *argv[])
 
 void	init_list(void)
 {
-	t_list	*list;
+	t_dllist	*list;
 
-	list = (t_list *)malloc(sizeof(t_list));
+	list = (t_dllist *)malloc(sizeof(t_dllist));
 	if (!list)
 		return ;
 	list->size = 0;

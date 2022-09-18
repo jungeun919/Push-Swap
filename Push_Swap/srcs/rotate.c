@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	rotate(t_list *list)
+void	rotate(t_dllist *list)
 {
 	if (list->size < 2)
 		return ;

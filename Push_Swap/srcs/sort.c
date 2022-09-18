@@ -38,7 +38,7 @@ void	sort_over_five(t_lists *lists)
 	b_to_a(lists);
 }
 
-int	check_sorted(t_list *list)
+int	check_sorted(t_dllist *list)
 {
 	while (list->size)
 	{

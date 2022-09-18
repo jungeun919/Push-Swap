@@ -85,7 +85,7 @@ void	check_valid_input_and_push(char *str, t_lists *lists)
 	rotate(lists->a);
 }
 
-int	check_duplicate_and_indexing(t_list *list, t_node *node)
+int	check_duplicate_and_indexing(t_dllist *list, t_node *node)
 {
 	t_node	*temp;
 

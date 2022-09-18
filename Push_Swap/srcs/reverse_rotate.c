@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	reverse_rotate(t_list *list)
+void	reverse_rotate(t_dllist *list)
 {
 	if (list->size < 2)
 		return ;
