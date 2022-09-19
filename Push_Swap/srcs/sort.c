@@ -34,7 +34,7 @@ void	sort_under_five(t_lists *lists)
 
 void	sort_over_five(t_lists *lists)
 {
-	a_to_b(lists);
+	a_to_b(lists, get_chunk(lists->a));
 	b_to_a(lists);
 }
 

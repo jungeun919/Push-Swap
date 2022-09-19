@@ -91,7 +91,8 @@ void	sort_three_node_index(t_lists *lists, int first, int second, int third);
 void	sort_four_or_five_node(t_lists *lists);
 
 //sort_over_five.c
-void	a_to_b(t_lists *lists);
+void	get_chunk(t_dllist *list);
+void	a_to_b(t_lists *lists, int chunk);
 void	b_to_a(t_lists *lists);
 
 #endif

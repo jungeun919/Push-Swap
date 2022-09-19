@@ -12,16 +12,23 @@
 
 #include "../includes/push_swap.h"
 
-void	a_to_b(t_lists *lists)
+void	get_chunk(t_dllist *list)
 {
-	int	i;
 	int	size;
 	int	chunk;
 
+	size = list->size;
+	chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
+	return (chunk);
+}
+
+void	a_to_b(t_lists *lists, int chunk)
+{
+	int	i;
+	int	size;
+
 	i = 0;
-	chunk = 5;
-	size = lists->a->size;
-	while (size)
+	while (lists->a->size)
 	{
 		if (lists->a->top->index <= i)
 		{
@@ -49,13 +56,11 @@ void	a_to_b(t_lists *lists)
 void	b_to_a(t_lists *lists)
 {
 	int		i;
-	int		size;
 	int		max_index;
 	t_node	*temp;
 
 	i = 0;
-	size = lists->b->size;
-	while (size)
+	while (lists->b->size)
 	{
 		max_index = lists->b->size - 1;
 		temp = lists->b->top;
@@ -71,6 +76,5 @@ void	b_to_a(t_lists *lists)
 			while (lists->b->top != temp)
 				rrb(lists);
 		pa(lists);
-		size--;
 	}
 }
