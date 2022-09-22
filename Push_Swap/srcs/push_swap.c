@@ -6,13 +6,12 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/16 17:17:31 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/22 17:11:02 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-/*
 int	main(int argc, char *argv[])
 {
 	t_lists	*lists;
@@ -22,30 +21,30 @@ int	main(int argc, char *argv[])
 	lists = (t_lists *)malloc(sizeof(t_lists));
 	if (!lists)
 		return (0);
-	init_list();
-	//input format 확인
+	lists->a = init_list();
+	lists->b = init_list();
 	check_input(argv, lists);
-	//sorted 되었는지 확인
-	if (check_sorted(lists->a))
-		//정렬 x 일 경우 -> sort list
+	// print_node(lists->a);
+	if (!(check_sorted(lists->a)))
 		sort_list(lists);
 	else
-		return ;
+		return (0);
+	// print_node(lists->a);
 	free_lists(lists);
 	return (0);
 }
-*/
 
-void	init_list(void)
+t_dllist	*init_list(void)
 {
 	t_dllist	*list;
 
 	list = (t_dllist *)malloc(sizeof(t_dllist));
 	if (!list)
-		return ;
+		return (NULL);
 	list->size = 0;
 	list->top = NULL;
 	list->bottom = NULL;
+	return (list);
 }
 
 t_node	*init_node(int num)

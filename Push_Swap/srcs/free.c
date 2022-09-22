@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:54:12 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/16 16:17:31 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/22 14:13:19 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 void	free_list(t_dllist *list)
 {
+	int		size;
 	t_node	*temp;
 
-	while (list->top)
+	size = list->size;
+	while (size)
 	{
 		temp = list->top->next;
 		free(list->top);
 		list->top = NULL;
 		list->top = temp;
+		size--;
 	}
 	free(list);
 	list = NULL;

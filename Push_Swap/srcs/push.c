@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 14:46:45 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/09 13:29:36 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:13:44 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ t_node	*pop(t_dllist *list)
 		list->top = list->top->next;
 		list->top->prev = list->bottom;
 		list->bottom->next = list->top;
+		list->size -= 1;
 	}
-	list->size -= 1;
+	// list->size -= 1;
 	return (temp);
 }
 

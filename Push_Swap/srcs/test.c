@@ -1,8 +1,5 @@
 #include "../includes/push_swap.h"
 
-#include <stdio.h>
-void	print_node(t_list *list);
-
 int	main(void)
 {
 	t_lists	*lists;
@@ -11,15 +8,16 @@ int	main(void)
 	t_node	*node2;
 	t_node	*node3;
 	t_node	*node4;
+	t_node	*node5;
 
 	lists = (t_lists *)malloc(sizeof(t_lists));
 
-	lists->a = (t_list *)malloc(sizeof(t_list));
+	lists->a = (t_dllist *)malloc(sizeof(t_dllist));
 	lists->a->size = 0;
 	lists->a->top = NULL;
 	lists->a->bottom = NULL;
 
-	lists->b = (t_list *)malloc(sizeof(t_list));
+	lists->b = (t_dllist *)malloc(sizeof(t_dllist));
 	lists->b->size = 0;
 	lists->b->top = NULL;
 	lists->b->bottom = NULL;
@@ -33,34 +31,35 @@ int	main(void)
 	node4 = init_node(3);
 	node4->index = 2;
 
-	push(lists->b, node1);
-	rotate(lists->b);
-	push(lists->b, node2);
-	rotate(lists->b);
-	push(lists->b, node3);
-	rotate(lists->b);
-	push(lists->b, node4);
-	rotate(lists->b);
-
-	print_node(lists->b);
-
-	b_to_a(lists);
+	push(lists->a, node1);
+	rotate(lists->a);
+	push(lists->a, node2);
+	rotate(lists->a);
+	push(lists->a, node3);
+	rotate(lists->a);
+	push(lists->a, node4);
+	rotate(lists->a);
 
 	print_node(lists->a);
 
+	node5 = init_node(5);
+	node5->index = 4;
+	push(lists->a, node5);
+	print_node(lists->a);
+
+	pop(lists->a);
+	print_node(lists->a);
+
+	reverse_rotate(lists->a);
+	print_node(lists->a);
+
+	rotate(lists->a);
+	print_node(lists->a);
+
+	swap(lists->a);
+	print_node(lists->a);
+
+	system("leaks a.out");
+
 	return (0);
-}
-
-void	print_node(t_list *list)
-{
-	int	size;
-
-	size = list->size;
-	while (size)
-	{
-		printf("%d -> ", list->top->num);
-		list->top = list->top->next;
-		size--;
-	}
-	printf("\n");
 }

@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:57:50 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/16 16:53:05 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:32:35 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,15 @@ void	sort_over_five(t_lists *lists)
 
 int	check_sorted(t_dllist *list)
 {
-	while (list->size)
+	int	size;
+
+	size = list->size - 1;
+	while (size)
 	{
 		if (list->top->index > list->top->next->index)
 			return (0);
 		list->top = list->top->next;
+		size--;
 	}
 	return (1);
 }

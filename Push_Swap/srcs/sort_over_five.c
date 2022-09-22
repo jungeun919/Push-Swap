@@ -6,13 +6,13 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:38:33 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/17 16:32:37 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/22 16:02:04 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	get_chunk(t_dllist *list)
+int	get_chunk(t_dllist *list)
 {
 	int	size;
 	int	chunk;
@@ -25,7 +25,6 @@ void	get_chunk(t_dllist *list)
 void	a_to_b(t_lists *lists, int chunk)
 {
 	int	i;
-	int	size;
 
 	i = 0;
 	while (lists->a->size)
@@ -49,7 +48,8 @@ void	a_to_b(t_lists *lists, int chunk)
 				ra(lists);
 			i++;
 		}
-		size--;
+		print_node(lists->a);
+		print_node(lists->b);
 	}
 }
 
