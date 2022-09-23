@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:01:19 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/22 14:03:49 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:32:09 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,12 @@ void		free_lists(t_lists *lists);
 //parsing.c
 void		check_input(char **argv, t_lists *lists);
 void		split_input(char *str, t_lists *lists);
-long long	atoll(const char *str);
 void		check_valid_input_and_push(char *str, t_lists *lists);
 int			check_duplicate_and_indexing(t_dllist *list, t_node *node);
+
+//parsing_utils.c
+long long	atoll(const char *str);
+long long	check_num(const char *str, int i, int sign);
 
 //sort.c
 void		sort_list(t_lists *lists);

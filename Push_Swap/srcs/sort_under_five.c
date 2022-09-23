@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:53:40 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/22 17:07:38 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/23 13:43:13 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void	sort_three_node_index(t_lists *lists, int first, int second, int third)
 {
 	if (first < second)
 	{
-		if (second > third) //132
+		if (second > third && first < third) //132
 		{
 			rra(lists);
 			sa(lists);
 		}
-		else //231
+		else if (second > third && first > third) //231
 			rra(lists);
 	}
 	else

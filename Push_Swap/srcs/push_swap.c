@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/22 17:11:02 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/23 14:22:54 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
+	int	c;
 	t_lists	*lists;
 
 	if (argc < 2)
@@ -24,12 +25,13 @@ int	main(int argc, char *argv[])
 	lists->a = init_list();
 	lists->b = init_list();
 	check_input(argv, lists);
-	// print_node(lists->a);
 	if (!(check_sorted(lists->a)))
 		sort_list(lists);
 	else
+	{
+		c = getchar();
 		return (0);
-	// print_node(lists->a);
+	}
 	free_lists(lists);
 	return (0);
 }
@@ -63,6 +65,6 @@ t_node	*init_node(int num)
 
 void	print_error(void)
 {
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }

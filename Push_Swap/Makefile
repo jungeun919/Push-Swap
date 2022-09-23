@@ -18,6 +18,7 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	rotate.c \
 	reverse_rotate.c \
 	parsing.c \
+	parsing_utils.c \
 	sort.c \
 	sort_under_five.c \
 	sort_over_five.c \
