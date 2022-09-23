@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:38:33 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/22 16:02:04 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/23 18:29:25 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	get_chunk(t_dllist *list)
 
 	size = list->size;
 	chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
+	printf("chunk = %d\n", chunk);
 	return (chunk);
 }
 
@@ -42,14 +43,11 @@ void	a_to_b(t_lists *lists, int chunk)
 		}
 		else
 		{
-			if (i < lists->a->size / 2)
+			if (i < lists->a->size / 2 && i >= 0)
 				rra(lists);
 			else
 				ra(lists);
-			i++;
 		}
-		print_node(lists->a);
-		print_node(lists->b);
 	}
 }
 
@@ -60,10 +58,14 @@ void	b_to_a(t_lists *lists)
 	t_node	*temp;
 
 	i = 0;
-	while (lists->b->size)
+	while (lists->b->size != 0)
 	{
 		max_index = lists->b->size - 1;
 		temp = lists->b->top;
+		if (temp->index == max_index)
+		{
+			pa(lists);
+		}
 		while (temp->index != max_index)
 		{
 			temp = temp->next;

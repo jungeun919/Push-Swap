@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:53:40 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 13:43:13 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/23 15:04:03 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ void	sort_four_or_five_node(t_lists *lists)
 		else
 			ra(lists);
 	}
-	print_node(lists->a);
-	print_node(lists->b);
 	sort_three_node(lists);
 	while (lists->b->size)
 		pa(lists);
