@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 14:22:54 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:32:51 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main(int argc, char *argv[])
 {
-	int	c;
 	t_lists	*lists;
 
 	if (argc < 2)
@@ -28,10 +27,7 @@ int	main(int argc, char *argv[])
 	if (!(check_sorted(lists->a)))
 		sort_list(lists);
 	else
-	{
-		c = getchar();
 		return (0);
-	}
 	free_lists(lists);
 	return (0);
 }

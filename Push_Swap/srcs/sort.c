@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:57:50 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 13:36:18 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:16:49 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,6 @@ void	sort_over_five(t_lists *lists)
 	a_to_b(lists, get_chunk(lists->a));
 	b_to_a(lists);
 }
-
-// int	check_sorted(t_dllist *list)
-// {
-// 	t_node	*init_top;
-// 	int		size;
-
-// 	init_top = list->top;
-// 	size = list->size - 1;
-// 	while (size)
-// 	{
-// 		if (list->top->index < list->top->next->index)
-// 			return (0);
-// 		list->top = list->top->next;
-// 		// printf("list->top->num : %d\n", list->top->num);
-// 		size--;
-// 	}
-// 	list->top = init_top;
-// 	// print_node(list);
-// 	return (1);
-// }
-
 
 int	check_sorted(t_dllist *list)
 {

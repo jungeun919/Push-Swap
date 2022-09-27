@@ -6,7 +6,6 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDES_DIR = includes
 LIBS_DIR = libs
 SRCS_DIR = srcs
-OBJS_DIR = objs
 
 LIBFT_DIR = libs/libft
 LIBFT = libft.a
@@ -22,10 +21,9 @@ SRCS = $(addprefix $(SRCS_DIR)/, \
 	sort.c \
 	sort_under_five.c \
 	sort_over_five.c \
-	free.c \
-	debug.c)
+	free.c)
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(notdir $(SRCS:.c=.o)))
+OBJS = $(notdir $(SRCS:.c=.o))
 
 all : $(NAME)
 
@@ -36,12 +34,11 @@ $(NAME) : $(LIBFT) $(OBJS)
 $(LIBFT) :
 	make -C $(LIBFT_DIR) all
 	
-$(OBJS_DIR)/%.o : $(SRCS_DIR)/%.c
-	@mkdir $(OBJS_DIR) 2> /dev/null || true
+%.o : $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) -I $(INCLUDES_DIR) -I $(LIBFT_DIR) -c $< -o $@
 
 clean :
-	rm -rf $(OBJS_DIR)
+	rm -rf $(OBJS)
 	make -C $(LIBFT_DIR) clean
 
 fclean : clean

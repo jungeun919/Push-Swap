@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:07:26 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 14:32:44 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:54:00 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,11 @@ void	split_input(char *str, t_lists *lists)
 	{
 		check_valid_input_and_push(split[i], lists);
 		free(split[i]);
+		split[i] = NULL;
 		i++;
 	}
 	free(split);
+	split = NULL;
 }
 
 void	check_valid_input_and_push(char *str, t_lists *lists)

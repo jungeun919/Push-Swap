@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:38:33 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 18:29:25 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/27 10:17:14 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	get_chunk(t_dllist *list)
 
 	size = list->size;
 	chunk = 0.000000053 * size * size + 0.03 * size + 14.5;
-	printf("chunk = %d\n", chunk);
 	return (chunk);
 }
 
@@ -43,7 +42,7 @@ void	a_to_b(t_lists *lists, int chunk)
 		}
 		else
 		{
-			if (i < lists->a->size / 2 && i >= 0)
+			if (i < lists->a->size / 2)
 				rra(lists);
 			else
 				ra(lists);
@@ -53,30 +52,33 @@ void	a_to_b(t_lists *lists, int chunk)
 
 void	b_to_a(t_lists *lists)
 {
+	while (lists->b->size > 0)
+	{
+		get_top_index(lists);
+		pa(lists);
+	}
+}
+
+void	get_top_index(t_lists *lists)
+{
 	int		i;
 	int		max_index;
 	t_node	*temp;
 
 	i = 0;
-	while (lists->b->size != 0)
+	max_index = lists->b->size - 1;
+	temp = lists->b->top;
+	if (temp->index == max_index)
+		return ;
+	while (temp->index != max_index)
 	{
-		max_index = lists->b->size - 1;
-		temp = lists->b->top;
-		if (temp->index == max_index)
-		{
-			pa(lists);
-		}
-		while (temp->index != max_index)
-		{
-			temp = temp->next;
-			i++;
-		}
-		if (i < lists->b->size / 2)
-			while (lists->b->top != temp)
-				rb(lists);
-		else
-			while (lists->b->top != temp)
-				rrb(lists);
-		pa(lists);
+		temp = temp->next;
+		i++;
 	}
+	if (i < lists->b->size / 2)
+		while (lists->b->top != temp)
+			rb(lists);
+	else
+		while (lists->b->top != temp)
+			rrb(lists);
 }
