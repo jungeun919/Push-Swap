@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 13:38:33 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/27 10:17:14 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:09:20 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	a_to_b(t_lists *lists, int chunk)
 
 void	b_to_a(t_lists *lists)
 {
-	while (lists->b->size > 0)
+	while (lists->b->size)
 	{
 		get_top_index(lists);
 		pa(lists);

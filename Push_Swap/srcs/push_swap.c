@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:04:51 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/28 15:34:02 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:14:54 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	lists->a = init_list();
 	lists->b = init_list();
-	check_input(argc, argv, lists);
+	check_input(argv, lists);
 	if (!(check_sorted(lists->a)))
 		sort_list(lists);
 	else

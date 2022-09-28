@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/23 14:32:34 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/23 14:32:53 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/28 19:39:00 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ long long	atoll(const char *str)
 		if (str[i] == '-')
 			sign = sign * (-1);
 		i++;
+		if (!str[i])
+			print_error();
 	}
-	if (sign == -1 && !str[i])
-		print_error();
 	return (check_num(str, i, sign));
 }
 
