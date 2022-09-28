@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/01 09:01:19 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/27 10:41:53 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:39:31 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void		rrr(t_lists *lists);
 void		free_list(t_dllist *list);
 void		free_lists(t_lists *lists);
 
-void		check_input(char **argv, t_lists *lists);
-void		split_input(char *str, t_lists *lists);
+void		split_input(int argc, char *str, t_lists *lists);
+void		check_input(int argc, char **argv, t_lists *lists);
 void		check_valid_input_and_push(char *str, t_lists *lists);
 int			check_duplicate_and_indexing(t_dllist *list, t_node *node);
 

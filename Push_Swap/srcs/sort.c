@@ -6,7 +6,7 @@
 /*   By: jungchoi <jungchoi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/14 07:57:50 by jungchoi          #+#    #+#             */
-/*   Updated: 2022/09/27 14:33:26 by jungchoi         ###   ########.fr       */
+/*   Updated: 2022/09/28 15:19:10 by jungchoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_sorted(t_dllist *list)
 	size = list->size - 1;
 	while (size)
 	{
-		if (!list && list->top->index == index)
+		if (list->top->index == index)
 		{
 			list->top = list->top->next;
 			index++;
